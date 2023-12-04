@@ -109,22 +109,6 @@ D = np.array([0])
 sys = scp.signal.lti(A, B, C, D)
 w, mag, phase = scp.signal.bode(sys, w=np.logspace(1e-2,1e4,10000))
 
-# plot dos diagramas de Bode
-plt.figure(6, figsize=(10, 4))
-plt.semilogx(w, mag)  # Bode magnitude plot
-plt.grid(which='both')
-plt.title("Diagrama de Bode (ganho) para '$\omega_L$'  - Saída ")
-plt.xlabel('Frequência (rad/s)')
-plt.ylabel('Ganho (dB)')
-plt.show()
-
-plt.figure(7, figsize=(10, 4))
-plt.semilogx(w, phase)  # Bode phase plot
-plt.grid(which='both')
-plt.title("Diagrama de Bode (fase) para '$\omega_L$'- Saída ")
-plt.xlabel('Frequência (rad/s)')
-plt.ylabel('Fase (graus)')
-plt.show()
 
 # calculate the transfer function
 print(scp.signal.ss2tf(A, B, C, D))
